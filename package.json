@@ -33,10 +33,10 @@
   "scripts": {
     "build": "tsc -b tsconfig.build.json",
     "dev": "pnpm run build && node bin/example-command.js",
-    "lint": "run-s -c lint:*",
+    "lint": "pnpm run --no-bail /^lint:.*/",
     "lint:oxfmt": "oxfmt --check",
     "lint:oxlint": "oxlint --type-aware --type-check",
-    "lint-fix": "run-s -c lint-fix:*",
+    "lint-fix": "pnpm run --no-bail /^lint-fix:.*/",
     "lint-fix:oxfmt": "oxfmt --write",
     "lint-fix:oxlint": "pnpm run lint:oxlint -- --fix",
     "test": "vitest"
@@ -44,7 +44,6 @@
   "devDependencies": {
     "@mizdra/oxlint-config": "^0.0.1",
     "@types/node": "^25.3.0",
-    "npm-run-all2": "^8.0.4",
     "oxfmt": "^0.35.0",
     "oxlint": "^1.50.0",
     "oxlint-tsgolint": "^0.14.2",
