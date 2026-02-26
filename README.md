@@ -4,7 +4,7 @@ TypeScript Web Application Template for @mizdra.
 
 ## Tech Stack
 
-- npm
+- pnpm
 - TypeScript
 - ESM
 - Oxfmt
@@ -27,7 +27,7 @@ OWNER=$(gh repo view --json owner -q .owner.login)
 REPO=$(gh repo view --json name  -q .name)
 # Remove license
 rm LICENSE
-npm pkg set license=UNLICENSED && npm i
+pnpm pkg set license=UNLICENSED && pnpm install
 # Setup common repository settings
 gh repo edit \
   --delete-branch-on-merge \
