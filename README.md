@@ -7,6 +7,7 @@ TypeScript Web Application Template for @mizdra.
 - pnpm
 - TypeScript
 - ESM
+- Next.js
 - Oxfmt
 - Oxlint
 - Vitest
