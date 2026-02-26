@@ -3,15 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "description": "app_description",
-  "keywords": [],
   "license": "CC0-1.0",
   "author": "mizdra <pp.mizdra@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mizdra/app_name.git"
-  },
-  "bin": {
-    "example-command": "bin/example-command.js"
   },
   "files": [
     "bin",
@@ -22,14 +18,6 @@
     "dist"
   ],
   "type": "module",
-  "exports": {
-    ".": {
-      "default": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      }
-    }
-  },
   "scripts": {
     "build": "tsc -b tsconfig.build.json",
     "dev": "pnpm run build && node bin/example-command.js",
