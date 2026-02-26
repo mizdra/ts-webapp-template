@@ -19,14 +19,18 @@
   ],
   "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "dev": "pnpm run --stream /^dev:.*/",
+    "dev:next": "next dev",
+    "dev:cmk": "cmk --watch --preserveWatchOutput",
     "build": "next build",
     "start": "next start",
-    "gen": "next typegen",
+    "gen": "pnpm run --no-bail /^gen:.*/",
+    "gen:next": "next typegen",
+    "gen:cmk": "cmk",
     "lint": "pnpm run gen && pnpm run --no-bail /^lint:.*/",
     "lint:oxfmt": "oxfmt --check",
     "lint:oxlint": "oxlint --type-aware --type-check",
-    "lint-fix": "pnpm run gen && pnpm run --no-bail gen /^lint-fix:.*/",
+    "lint-fix": "pnpm run gen && pnpm run --no-bail /^lint-fix:.*/",
     "lint-fix:oxfmt": "oxfmt --write",
     "lint-fix:oxlint": "pnpm run lint:oxlint -- --fix",
     "test": "vitest"
@@ -37,6 +41,7 @@
     "react-dom": "^19.2.4"
   },
   "devDependencies": {
+    "@css-modules-kit/codegen": "^0.10.0",
     "@mizdra/oxlint-config": "^0.0.1",
     "@types/node": "^25.3.0",
     "@types/react": "^19.2.14",
