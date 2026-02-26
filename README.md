@@ -1,6 +1,6 @@
-# npm-package-template
+# ts-webapp-template
 
-npm package template for @mizdra
+TypeScript Web Application Template for @mizdra.
 
 ## Tech Stack
 
@@ -15,7 +15,7 @@ npm package template for @mizdra
 
 ## Usage
 
-- Create a repository from https://github.com/new?template_name=npm-package-template&template_owner=mizdra
+- Create a repository from https://github.com/new?template_name=ts-webapp-template&template_owner=mizdra
 - Clone the created repository
 
 ## Initial Configuration
@@ -25,15 +25,9 @@ Perform the following configuration after cloning the repository:
 ```bash
 OWNER=$(gh repo view --json owner -q .owner.login)
 REPO=$(gh repo view --json name  -q .name)
-# Change license
-gh repo license view mit | sed "s/\[year\]/$(date +%Y)/;s/\[fullname\]/mizdra/" > LICENSE
-npm pkg set license=MIT && npm i
-# Setup labels
-GITHUB_TOKEN=$(gh auth token) npx \
-  -p @azu/github-label-setup \
-  -p @mizdra/github-label-presets \
-  github-label-setup \
-  --labels @mizdra/github-label-presets
+# Remove license
+rm LICENSE
+npm pkg set license=UNLICENSED && npm i
 # Setup common repository settings
 gh repo edit \
   --delete-branch-on-merge \
@@ -48,8 +42,8 @@ gh api -X PATCH /repos/$OWNER/$REPO/code-scanning/default-setup -f state=configu
 # Enable immutable releases
 gh api -X PUT /repos/$OWNER/$REPO/immutable-releases
 # Setup rulesets
-DEFAULT_BRANCH_PROTECTION=$(gh api /repos/mizdra/npm-package-template/rulesets/13184851)
-VERSION_TAG_PROTECTION=$(gh api /repos/mizdra/npm-package-template/rulesets/13184887)
+DEFAULT_BRANCH_PROTECTION=$(gh api /repos/mizdra/ts-webapp-template/rulesets/13184851)
+VERSION_TAG_PROTECTION=$(gh api /repos/mizdra/ts-webapp-template/rulesets/13184887)
 gh api -X POST /repos/$OWNER/$REPO/rulesets --input - <<< $DEFAULT_BRANCH_PROTECTION
 gh api -X POST /repos/$OWNER/$REPO/rulesets --input - <<< $VERSION_TAG_PROTECTION
 # Require actions to be pinned to a full-length commit SHA
