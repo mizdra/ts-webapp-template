@@ -1,12 +1,15 @@
 {
   "extends": "./tsconfig.base.json",
-  "exclude": ["node_modules", "**/dist"],
   "compilerOptions": {
-    "target": "ES2023",
-    "lib": ["ESNext"],
-    "module": "NodeNext",
-
-    "noEmit": true
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "plugins": [{ "name": "next" }],
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
-  "references": [{ "path": "./tsconfig.build.json" }]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".next/dev/types/**/*.ts", "**/*.mts"]
 }
