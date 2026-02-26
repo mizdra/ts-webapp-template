@@ -1,0 +1,57 @@
+{
+  "name": "app_name",
+  "version": "0.0.0",
+  "private": true,
+  "description": "app_description",
+  "keywords": [],
+  "license": "CC0-1.0",
+  "author": "mizdra <pp.mizdra@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mizdra/app_name.git"
+  },
+  "bin": {
+    "example-command": "bin/example-command.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/__snapshots__",
+    "!src/test",
+    "dist"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsc -b tsconfig.build.json",
+    "dev": "npm run build && node bin/example-command.js",
+    "lint": "run-s -c lint:*",
+    "lint:oxfmt": "oxfmt --check",
+    "lint:oxlint": "oxlint --type-aware --type-check",
+    "lint-fix": "run-s -c lint-fix:*",
+    "lint-fix:oxfmt": "oxfmt --write",
+    "lint-fix:oxlint": "npm run lint:oxlint -- --fix",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@mizdra/oxlint-config": "^0.0.1",
+    "@types/node": "^25.3.0",
+    "npm-run-all2": "^8.0.4",
+    "oxfmt": "^0.35.0",
+    "oxlint": "^1.50.0",
+    "oxlint-tsgolint": "^0.14.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  },
+  "engines": {
+    "node": ">=22.22.0"
+  }
+}
