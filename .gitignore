@@ -184,3 +184,4 @@ next-env.d.ts
 
 # User-specific files
 /generated
+/docs
