@@ -3,5 +3,8 @@ ignoredBuiltDependencies:
   - unrs-resolver
 minimumReleaseAge: 1440
 onlyBuiltDependencies:
+  - '@prisma/engines'
+  - better-sqlite3
   - esbuild
+  - prisma
 verifyDepsBeforeRun: warn
