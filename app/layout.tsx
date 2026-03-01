@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
+import { Header } from './Header';
+import { HeaderWrapper } from './HeaderWrapper';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'ts-webapp-template',
-  description: 'Typescript Web Application Template',
+  title: 'mini-blog',
+  description: 'A simple blog service built with Next.js',
 };
 
 export default function RootLayout({
@@ -13,7 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body>{children}</body>
+      <body>
+        <Suspense fallback={<Header userId={null} userImage={null} />}>
+          <HeaderWrapper />
+        </Suspense>
+        <main>{children}</main>
+      </body>
     </html>
   );
 }
